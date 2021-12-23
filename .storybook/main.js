@@ -7,10 +7,16 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app",
-    '@react-theming/storybook-addon'
+    '@storybook/addon-actions'
   ],
   "framework": "@storybook/react",
   "core": {
     "builder": "webpack5"
+  },
+  webpackFinal(config) {
+    delete config.resolve.alias['emotion-theming'];
+    delete config.resolve.alias['@emotion/styled'];
+    delete config.resolve.alias['@emotion/core'];
+    return config;
   }
 }
