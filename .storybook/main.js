@@ -13,6 +13,8 @@ module.exports = {
   "core": {
     "builder": "webpack5"
   },
+  //Web pack below to resolve styling issue between Mui and storybook
+  //See the following issue and comment for more info on problem and solution: https://github.com/mui-org/material-ui/issues/24282#issuecomment-951015101
   webpackFinal(config) {
     delete config.resolve.alias['emotion-theming'];
     delete config.resolve.alias['@emotion/styled'];
